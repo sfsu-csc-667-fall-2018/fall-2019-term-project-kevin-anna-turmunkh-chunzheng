@@ -4,6 +4,7 @@
   "description": "csc667 team project",
   "main": "index.js",
   "scripts": {
+    "start": "node tests/serverTest.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
