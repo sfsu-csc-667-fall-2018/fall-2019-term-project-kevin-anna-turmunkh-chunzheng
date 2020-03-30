@@ -1,0 +1,1 @@
+web: node tests/serverTest.js
