@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "node tests/serverTest.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db:create:migration": "npx sequelize migration:generate --name ",
+    "db:migrate": "npx sequelize db:migrate",
+    "db:rollback": "npx sequelize db:migrate:undo"
   },
   "repository": {
     "type": "git",

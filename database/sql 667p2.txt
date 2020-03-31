@@ -1,0 +1,86 @@
+-- ---
+-- Globals
+-- ---
+
+-- SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+-- SET FOREIGN_KEY_CHECKS=0;
+
+-- ---
+-- Table 'User'
+-- user''s information
+-- ---
+
+DROP TABLE IF EXISTS `User`;
+		
+CREATE TABLE `User` (
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(50) NOT NULL,
+  `password` VARCHAR(50) NOT NULL,
+  `current_game_id` INTEGER(20) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) COMMENT 'user''s information';
+
+-- ---
+-- Table 'game'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `game`;
+		
+CREATE TABLE `game` (
+  `id` INTEGER(20) NOT NULL AUTO_INCREMENT,
+  `blk_king` CHAR(2) NOT NULL DEFAULT 'e8',
+  `wht_king` CHAR(2) NOT NULL DEFAULT 'e1',
+  `blk_queen` CHAR(2) NOT NULL DEFAULT 'd8',
+  `wht_queen` CHAR(2) NOT NULL DEFAULT 'd1',
+  `wht_bishop1` CHAR(2) NOT NULL DEFAULT 'c1',
+  `wht_bishop2` CHAR(2) NOT NULL DEFAULT 'f1',
+  `blk_bishop1` CHAR(2) NOT NULL DEFAULT 'c8',
+  `blk_bishop2` CHAR(2) NOT NULL DEFAULT 'f8',
+  `wht_knight1` CHAR(2) NOT NULL DEFAULT 'b1',
+  `wht_knight2` CHAR(2) NOT NULL DEFAULT 'g1',
+  `blk_knight1` CHAR(2) NOT NULL DEFAULT 'b8',
+  `blk_knight2` CHAR(2) NOT NULL DEFAULT 'g8',
+  `wht_rook1` CHAR(2) NOT NULL DEFAULT 'a1',
+  `wht_rook2` CHAR(2) NOT NULL DEFAULT 'h1',
+  `blk_rook1` CHAR(2) NOT NULL DEFAULT 'a8',
+  `blk_rook2` CHAR(2) NOT NULL DEFAULT 'h8',
+  `wht_pawn1` CHAR(2) NOT NULL DEFAULT 'a2',
+  `wht_pawn2` CHAR(2) NOT NULL DEFAULT 'b2',
+  `wht_pawn3` CHAR(2) NOT NULL DEFAULT 'c2',
+  `wht_pawn4` CHAR(2) NOT NULL DEFAULT 'd2',
+  `wht_pawn5` CHAR(2) NOT NULL DEFAULT 'e2',
+  `wht_pawn6` CHAR(2) NOT NULL DEFAULT 'f2',
+  `wht_pawn7` CHAR(2) NOT NULL DEFAULT 'g2',
+  `wht_pawn8` CHAR(2) NOT NULL DEFAULT 'h2',
+  `blk_pawn1` CHAR(2) NOT NULL DEFAULT 'a8',
+  `blk_pawn2` CHAR(2) NOT NULL DEFAULT 'b8',
+  `blk_pawn3` CHAR(2) NOT NULL DEFAULT 'c8',
+  `blk_pawn4` CHAR(2) NOT NULL DEFAULT 'd8',
+  `blk_pawn5` CHAR(2) NOT NULL DEFAULT 'e8',
+  `blk_pawn6` CHAR(2) NOT NULL DEFAULT 'f8',
+  `blk_pawn7` CHAR(2) NOT NULL DEFAULT 'g8',
+  `blk_pawn8` CHAR(2) NOT NULL DEFAULT 'h8',
+  PRIMARY KEY (`id`)
+);
+
+-- ---
+-- Foreign Keys 
+-- ---
+
+
+-- ---
+-- Table Properties
+-- ---
+
+-- ALTER TABLE `User` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `game` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ---
+-- Test Data
+-- ---
+
+-- INSERT INTO `User` (`id`,`username`,`password`,`current_game_id`) VALUES
+-- ('','','','');
+-- INSERT INTO `game` (`id`,`blk_king`,`wht_king`,`blk_queen`,`wht_queen`,`wht_bishop1`,`wht_bishop2`,`blk_bishop1`,`blk_bishop2`,`wht_knight1`,`wht_knight2`,`blk_knight1`,`blk_knight2`,`wht_rook1`,`wht_rook2`,`blk_rook1`,`blk_rook2`,`wht_pawn1`,`wht_pawn2`,`wht_pawn3`,`wht_pawn4`,`wht_pawn5`,`wht_pawn6`,`wht_pawn7`,`wht_pawn8`,`blk_pawn1`,`blk_pawn2`,`blk_pawn3`,`blk_pawn4`,`blk_pawn5`,`blk_pawn6`,`blk_pawn7`,`blk_pawn8`) VALUES
+-- ('','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','');
