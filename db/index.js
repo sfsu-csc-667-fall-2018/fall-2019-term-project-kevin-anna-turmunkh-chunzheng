@@ -1,4 +1,7 @@
-const pgp = require('pg-promise')()
-const connection = pgp(process.env.DATABASE_URL)
+const pgp = require('pg-promise')();
 
-module.exports = connection
+process.env.DATABASE_URL = "postgres://turmunkhnergui@localhost:5432/my-app";
+console.log(process.env.DATABASE_URL);
+
+const connection = pgp(process.env.DATABASE_URL);
+module.exports = connection;
