@@ -1,17 +1,19 @@
-extends layout
+extends gamelayout
 
 block content
     div.row
         .col-lg.text-center
+            //-Board alterable via board.js
             div(id="board" style="width:500px;padding-top:50px; margin:auto; min-width: 200px;")
-
-            form(class="lobby-play" method="POST" action="/lobby")
+            
+            form(class="lobby-play" method="GET" action="/lobby")
                     #error
                         if error
                             p.text-danger Error!!!
                     - var buttonClass=['btn', 'btn-lg', 'btn-primary', 'btn-block'];
                     hr
                     button(class=buttonClass type="") Return To Lobby
+        //-Chat column
         .col-lg
             - var h1Classes = ['h3', 'mb-3', 'font-weight-normal']
             h1(class=h1Classes) Lobby Chat
@@ -35,6 +37,7 @@ block content
                     h1(class=h1Classes)  Placeholder
                     h1(class=h1Classes)  Placeholder
                 br
+            //-Send Message Terminal
             form(class="" method="POST" action="")
                 #error
                     if error
