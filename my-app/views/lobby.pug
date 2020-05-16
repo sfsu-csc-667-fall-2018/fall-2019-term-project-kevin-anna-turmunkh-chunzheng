@@ -1,0 +1,68 @@
+extends layout
+
+block content
+    div.row
+        //-Button Column
+        .col-lg.text-center
+                - var h1Classes = ['h3', 'mb-3', 'font-weight-normal']
+                    h1(class=h1Classes)  Play 
+                //-Enter Queue button
+                form(class="lobby-play" method="POST" action="")
+                    #error
+                        if error
+                            p.text-danger Error!!!
+                    - var buttonClass=['btn', 'btn-lg', 'btn-primary', 'btn-block'];
+                    hr
+                    button(class=buttonClass type="") Queue
+                //-Recconnect to previous game
+                form(class="lobby-recon" method="POST" action="")
+                    #error
+                        if error
+                            p.text-danger Error!!!
+                    - var buttonClass=['btn', 'btn-lg', 'btn-primary', 'btn-block'];
+                    hr
+                    button(class=buttonClass type="") Reconnect
+                //-Logout
+                form(class="lobby-logout" method="POST" action="")
+                    #error
+                        if error
+                            p.text-danger Error!!!
+                    hr
+                    button(class=buttonClass type="") Logout
+        //-Chat column
+        .col-lg
+            - var h1Classes = ['h3', 'mb-3', 'font-weight-normal']
+            h1(class=h1Classes) Lobby Chat
+            form(class="" method="GET" action="")
+                div(class="chatbox")
+                    h1(class=h1Classes)  Player 1: Who wants to play
+                    h1(class=h1Classes)  Player 2: I do
+                    h1(class=h1Classes)  Placeholder
+                    h1(class=h1Classes)  Placeholder
+                    h1(class=h1Classes)  Placeholder
+                    h1(class=h1Classes)  Placeholder
+                    h1(class=h1Classes)  Placeholder
+                    h1(class=h1Classes)  Placeholder
+                    h1(class=h1Classes)  Placeholder
+                    h1(class=h1Classes)  Placeholder
+                    h1(class=h1Classes)  Placeholder
+                    h1(class=h1Classes)  Placeholder
+                    h1(class=h1Classes)  Placeholder
+                    h1(class=h1Classes)  Placeholder
+                    h1(class=h1Classes)  Placeholder
+                    h1(class=h1Classes)  Placeholder
+                    h1(class=h1Classes)  Placeholder
+                br
+            //-Send Message Terminal
+            form(class="" method="POST" action="")
+                #error
+                    if error
+                        p.text-danger Error!!!
+                div.row
+                    .col-sm-9
+                        input(type="text" name="message" id="message" class="form-control" placeholder="Send a message" required)
+                    .col-sm-3
+                        - var sendClass=['btn', 'btn-lg', 'btn-block']
+                        button(class=sendClass type="submit") Send
+                
+                
