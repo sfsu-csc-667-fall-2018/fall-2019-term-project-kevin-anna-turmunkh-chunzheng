@@ -13,6 +13,7 @@ block content
                     - var buttonClass=['btn', 'btn-lg', 'btn-primary', 'btn-block'];
                     hr
                     button(class=buttonClass type="") Return To Lobby
+            
         //-Chat column
         .col-lg
             - var h1Classes = ['h3', 'mb-3', 'font-weight-normal']
@@ -38,15 +39,17 @@ block content
                     h1(class=h1Classes)  Placeholder
                 br
             //-Send Message Terminal
-            form(class="" method="POST" action="")
-                #error
-                    if error
-                        p.text-danger Error!!!
-                div.row
-                    .col-sm-9
-                        input(type="text" name="message" id="message" class="form-control" placeholder="Send a message" required)
-                    .col-sm-3
-                        - var sendClass=['btn', 'btn-lg', 'btn-block']
-                        button(class=sendClass type="submit") Send
+            section.section.chat-container
+                .container
+                    .columns
+                    .box.column.is-8.is-offset-2
+                        .chat-messages.has-text-left
+                        ul#chat-messages
+                        form
+                        .field.has-addons
+                            p.control.is-expanded
+                            input(type='text', class='input', placeholder='Try to say something', id='message')
+                            p.control
+                            input(type='submit', class='button is-success', value='Post')
                 
                 
