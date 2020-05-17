@@ -1,0 +1,55 @@
+extends gamelayout
+
+block content
+    div.row
+        .col-lg.text-center
+            //-Board alterable via board.js
+            div(id="board" style="width:500px;padding-top:50px; margin:auto; min-width: 200px;")
+            
+            form(class="lobby-play" method="GET" action="/lobby")
+                    #error
+                        if error
+                            p.text-danger Error!!!
+                    - var buttonClass=['btn', 'btn-lg', 'btn-primary', 'btn-block'];
+                    hr
+                    button(class=buttonClass type="") Return To Lobby
+            
+        //-Chat column
+        .col-lg
+            - var h1Classes = ['h3', 'mb-3', 'font-weight-normal']
+            h1(class=h1Classes) Lobby Chat
+            form(class="" method="GET" action="")
+                div(class="chatbox")
+                    h1(class=h1Classes)  Player 1: Who wants to play
+                    h1(class=h1Classes)  Player 2: I do
+                    h1(class=h1Classes)  Placeholder
+                    h1(class=h1Classes)  Placeholder
+                    h1(class=h1Classes)  Placeholder
+                    h1(class=h1Classes)  Placeholder
+                    h1(class=h1Classes)  Placeholder
+                    h1(class=h1Classes)  Placeholder
+                    h1(class=h1Classes)  Placeholder
+                    h1(class=h1Classes)  Placeholder
+                    h1(class=h1Classes)  Placeholder
+                    h1(class=h1Classes)  Placeholder
+                    h1(class=h1Classes)  Placeholder
+                    h1(class=h1Classes)  Placeholder
+                    h1(class=h1Classes)  Placeholder
+                    h1(class=h1Classes)  Placeholder
+                    h1(class=h1Classes)  Placeholder
+                br
+            //-Send Message Terminal
+            section.section.chat-container
+                .container
+                    .columns
+                    .box.column.is-8.is-offset-2
+                        .chat-messages.has-text-left
+                        ul#chat-messages
+                        form
+                        .field.has-addons
+                            p.control.is-expanded
+                            input(type='text', class='input', placeholder='Try to say something', id='message')
+                            p.control
+                            input(type='submit', class='button is-success', value='Post')
+                
+                

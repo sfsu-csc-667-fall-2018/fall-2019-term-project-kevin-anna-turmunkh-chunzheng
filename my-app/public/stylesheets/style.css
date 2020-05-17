@@ -5,7 +5,12 @@ body {
   background-color: #222831;
   font-family: 'Roboto', sans-serif;
   color: white;
-
+  border-style: solid;
+  border-color: #f2a365;
+  border-radius: 5px;
+}
+html{
+  height: 100%;
 }
 
 .form-signin {
@@ -25,6 +30,7 @@ body {
   color: white;
 }
 
+
 .lobby-recon {
   width: 100%;
   max-width: 330px;
@@ -39,7 +45,7 @@ body {
   padding: .375rem .75rem;
   margin: auto;
   color: white;
-  margin-top: 50%;
+  margin-top: auto;
 }
 
 .chatbox{
@@ -90,6 +96,7 @@ body {
 }
 
 
+
 .btn-primary:hover {
   background-color: #30475e;
   border-color: #30475e;
@@ -108,3 +115,4 @@ h6 {
 hr {
   background-color: #ececec;
 }
+
