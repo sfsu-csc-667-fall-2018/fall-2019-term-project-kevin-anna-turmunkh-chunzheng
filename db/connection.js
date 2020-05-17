@@ -1,4 +1,11 @@
-const pgp = require('pg-promise')();
-const connection = pgp(process.env.DATABASE_URL);
+const pgp = require('pg-promise');
+const path = require('path');
+const env = process.env.NODE_ENV || 'development';
+const config = require(__dirname + '/../config/config.js')[env];
 
-module.exports = connection;
+const url = config.DATABASE_URL
+
+const connection = pgp(url)
+
+
+module.exports = connection

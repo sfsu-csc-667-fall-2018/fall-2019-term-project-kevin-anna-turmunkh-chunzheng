@@ -1,4 +1,4 @@
-const Users = require('./users.js')
+const Users = require('./users.js').default
 
 module.exports = {
   Users

@@ -24,7 +24,8 @@ router.get('/logout', (request, response) => {
 })
 
 router.get('/signup', (_, response) => {
-  response.render('signup', { message: [] })
+ response.render('signup', { message: [""] })
+
 })
 
 router.post('/signup', (request, response) => {
