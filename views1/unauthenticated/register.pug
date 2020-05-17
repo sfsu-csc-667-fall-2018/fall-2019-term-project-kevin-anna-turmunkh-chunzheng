@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1 Register
+
+  ul
+    each error in message
+      li= error
+
+  form(method="post" action="/users/register")
+    label(for="email") Email:
+    input#email(type="text", name="username")
+
+    label(for="password") Password:
+    input#password(type="password", name="password")
+
+    input(type="submit")

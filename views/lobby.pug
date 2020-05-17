@@ -1,65 +1,57 @@
 extends layout
 
 block content
+
+    p User: #{user.username} Id: #{user.id}
     div.row
+        //-Button Column
         .col-lg.text-center
-
-                - var h1Classes = ['h3', 'mb-3', 'font-weight-normal']
-                    h1(class=h1Classes)  Play 
-                form(class="lobby-play" method="POST" action="")
-                    #error
-                        if error
-                            p.text-danger Error!!!
-                    - var buttonClass=['btn', 'btn-lg', 'btn-primary', 'btn-block'];
-                    hr
-                    button(class=buttonClass type="") Queue
-                form(class="lobby-recon" method="POST" action="")
-                    #error
-                        if error
-                            p.text-danger Error!!!
-                    - var buttonClass=['btn', 'btn-lg', 'btn-primary', 'btn-block'];
-                    hr
-                    button(class=buttonClass type="") Reconnect
-
-
-                form(class="lobby-logout" method="POST" action="")
-                    #error
-                        if error
-                            p.text-danger Error!!!
-                    hr
-                    button(class=buttonClass type="") Logout
-        .col-lg
             - var h1Classes = ['h3', 'mb-3', 'font-weight-normal']
-            h1(class=h1Classes) Lobby Chat
-            form(class="" method="GET" action="")
-                div(class="chatbox")
-                    h1(class=h1Classes)  Player 1: Who wants to play
-                    h1(class=h1Classes)  Player 2: I do
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                br
-            form(class="" method="POST" action="")
+                h1(class=h1Classes)  Play 
+            //-Enter Queue button
+            h2.title Current Games
+                ul#games
+            form(class="lobby-play" method="POST" action="/lobby/create")
                 #error
                     if error
                         p.text-danger Error!!!
-                div.row
-                    .col-sm-9
-                        input(type="text" name="message" id="message" class="form-control" placeholder="Send a message" required)
-                    .col-sm-3
-                        - var sendClass=['btn', 'btn-lg', 'btn-block']
-                        button(class=sendClass type="submit") Send
-                
-                
+                - var buttonClass=['btn', 'btn-lg', 'btn-primary', 'btn-block'];
+                hr
+                button(class=buttonClass type="submit", id="create_game") Create New Game
+            //-Recconnect to previous game
+            form(class="lobby-recon" method="POST" action="")
+                #error
+                    if error
+                        p.text-danger Error!!!
+                - var buttonClass=['btn', 'btn-lg', 'btn-primary', 'btn-block'];
+                hr
+                button(class=buttonClass type="") Reconnect
+            //-Logout
+            form(class="lobby-logout" method="POST" action='/users/logout')
+                #error
+                    if error
+                        p.text-danger Error!!!
+                hr
+                a(class=buttonClass href="/users/logout") Logout
+
+        .col-lg
+        section.section.chat-container
+            .container
+                .columns
+                    .box.column.is-8.is-offset-2
+                    h2.title Chat box
+                    div(class="chatbox")
+                        .chat-messages.has-text-left
+                            ul#messages
+                        form(id='chat-form')
+                            .field.has-addons
+                                input(id='room_id', type='hidden', value=0)
+                                input(id='name', type='hidden', value=user.username)
+                                p.control.is-expanded
+                                    input(id='message' type='text' class='input' placeholder='Message')
+                                p.control
+                                    input(type='submit' class='button is-success' value='Send')
+                    br
+
+        script(src='/scripts/chat.js')
+        script(src='/scripts/lobby.js')
