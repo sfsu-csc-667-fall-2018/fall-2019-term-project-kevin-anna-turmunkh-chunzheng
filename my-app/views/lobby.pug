@@ -4,7 +4,12 @@ block content
     div.row
         //-Button Column
         .col-lg.text-center
-                - var h1Classes = ['h3', 'mb-3', 'font-weight-normal']
+
+                h1.text-center Chess
+                p.text-center by Anna, Chunzheng, Kevin, Turmunkh
+                hr(style="width:50%;")
+
+                - var h1Classes = ['mb-3', 'font-weight-normal']
                     h1(class=h1Classes)  Play 
                 //-Enter Queue button
                 form(class="lobby-play" method="POST" action="")
@@ -29,42 +34,27 @@ block content
                             p.text-danger Error!!!
                     hr
                     button(class=buttonClass type="") Logout
+                div(class="pictures")
+                    <img src="\images\chesspieces\wikipedia\wN.png" alt="BlackKing" style="width:10vh">
+                    div
+                        <img src="\images\chesspieces\wikipedia\wK.png" alt="BlackKing" style="width:10vh">
+                        <img src="\images\chesspieces\wikipedia\wQ.png" alt="BlackKing" style="width:10vh">
+
         //-Chat column
         .col-lg
-            - var h1Classes = ['h3', 'mb-3', 'font-weight-normal']
-            h1(class=h1Classes) Lobby Chat
-            form(class="" method="GET" action="")
-                div(class="chatbox")
-                    h1(class=h1Classes)  Player 1: Who wants to play
-                    h1(class=h1Classes)  Player 2: I do
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                br
-            //-Send Message Terminal
             section.section.chat-container
-                .container
-                    .columns
-                    .box.column.is-8.is-offset-2
-                        .chat-messages.has-text-left
-                        ul#chat-messages
-                        form
-                        .field.has-addons
-                            p.control.is-expanded
-                            input(type='text', class='input', placeholder='Try to say something', id='message')
-                            p.control
-                            input(type='submit', class='button is-success', value='Post')
+                - var h1Classes = ['h3', 'mb-3', 'font-weight-normal']
+                h1(class=h1Classes) Chat box
+                div(class="chatbox")
+                    .chat-messages.has-text-left
+                        ul#messages
+                br
+                form(id='chat-form' class = 'sendMsg')
+                    .field.has-addons
+                        p.control.is-expanded
+                            input(id='message' type='text' class='form-control' placeholder='Send a Message')
+                        p.control
+                            input(type='submit' value='Send')
+                br
                 
                 
