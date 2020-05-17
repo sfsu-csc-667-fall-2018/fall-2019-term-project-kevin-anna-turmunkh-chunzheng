@@ -4,8 +4,11 @@ block content
     div.row
         .col-lg.text-center
             //-Board alterable via board.js
-            div(id="board" style="width:500px;padding-top:50px; margin:auto; min-width: 200px;")
-            
+            h2.text-center Chess
+            p.text-center by Anna, Chunzheng, Kevin, Turmunkh
+            div(id="board" style="width:500px; margin:auto;")
+
+
             form(class="lobby-play" method="GET" action="/lobby")
                     #error
                         if error
@@ -16,40 +19,19 @@ block content
             
         //-Chat column
         .col-lg
-            - var h1Classes = ['h3', 'mb-3', 'font-weight-normal']
-            h1(class=h1Classes) Lobby Chat
-            form(class="" method="GET" action="")
-                div(class="chatbox")
-                    h1(class=h1Classes)  Player 1: Who wants to play
-                    h1(class=h1Classes)  Player 2: I do
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                    h1(class=h1Classes)  Placeholder
-                br
-            //-Send Message Terminal
             section.section.chat-container
-                .container
-                    .columns
-                    .box.column.is-8.is-offset-2
-                        .chat-messages.has-text-left
-                        ul#chat-messages
-                        form
-                        .field.has-addons
-                            p.control.is-expanded
-                            input(type='text', class='input', placeholder='Try to say something', id='message')
-                            p.control
-                            input(type='submit', class='button is-success', value='Post')
+                - var h1Classes = ['h3', 'mb-3', 'font-weight-normal']
+                h1(class=h1Classes) Chat box
+                div(class="chatbox")
+                    .chat-messages.has-text-left
+                        ul#messages
+                br
+                form(id='chat-form' class = 'sendMsg')
+                    .field.has-addons
+                        p.control.is-expanded
+                            input(id='message' type='text' class='form-control' placeholder='Send a Message')
+                        p.control
+                            input(type='submit' value='Send')
+                br
                 
                 
