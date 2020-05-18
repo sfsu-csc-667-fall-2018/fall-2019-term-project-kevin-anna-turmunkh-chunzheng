@@ -9,7 +9,6 @@ $(window).on('load', () => {
 
 gameSocket.on('get moves', () => {
     const pos = board.fen();
-    console.log(board.fen());
     gameSocket.emit('moves list', {pos, gameId, playerId});
 });
 

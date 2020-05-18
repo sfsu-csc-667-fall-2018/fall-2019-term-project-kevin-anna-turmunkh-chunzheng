@@ -25,15 +25,11 @@ router.post('/lobby', (request, response) => {
 
 
 gameSocket.on('connection', (socket) => {
-
-  console.log('Connected to game socket');
-
   gameSocket.emit('get moves');
 
   socket.on('moves list', (result) => {
     ingame.updatePlayer(result.gameId, result.playerId, result.pos)
       .then(() => {
-        console.log('done');
         socket.emit('display moves', result);
       }).catch(error => {
         console.log(error);

@@ -33,18 +33,17 @@ $(document).ready(() => {
     }
   });
 
-  //listen for responses
   socket.on('entered message', data => {
     const { roomId, user } = data;
 
-    const enteredLobby = ' has entered the Lobby';
-    const enteredGame = ' had entered the Game Room';
+    const lobby = ' joined';
+    const game = ' joined into Game';
 
     if (room == roomId) {
       if (room == 0) {
-        $('#messages').append($('<li>').text(user + enteredLobby + roomId));
+        $('#messages').append($('<li>').text(user + lobby + roomId));
       } else {
-        $('#messages').append($('<li>').text(user + enteredGame + roomId));
+        $('#messages').append($('<li>').text(user + game + roomId));
       }
     }
 
