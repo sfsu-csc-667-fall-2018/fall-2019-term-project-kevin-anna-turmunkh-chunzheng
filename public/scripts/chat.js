@@ -42,19 +42,11 @@ $(document).ready(() => {
 
     if (room == roomId) {
       if (room == 0) {
-        $('#messages').append($('<li>').text(user + enteredLobby));
+        $('#messages').append($('<li>').text(user + enteredLobby + roomId));
       } else {
-        $('#messages').append($('<li>').text(user + enteredGame));
+        $('#messages').append($('<li>').text(user + enteredGame + roomId));
       }
     }
 
-  });
-
-  socket.on('typing message', data => {
-    const { roomId, user } = data;
-
-    if (roomId == room) {
-      $('#messages').append($('<li>').text(user + ' typing message...'));
-    }
   });
 });

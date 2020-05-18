@@ -1,11 +1,19 @@
 extends layout
 
 block content
-    p User: #{user.username} Id: #{user.id}
+    input#pageGameId(type='hidden' value=gameId)
+    input#pagePlayerId(type='hidden' value=playerId)
+    input#pagePlayerName(type='hidden' value=username)
+    h3 Game #{gameId}, Player #{username} (#{playerId})
     div.row
         .col-lg.text-center
-            div(id="board" style="width:500px;padding-top:50px; margin:auto; min-width: 200px;")
+            h2.title ChessBoard
+            div(id="myBoard" style="width:500px;padding-top:50px; margin:auto; min-width: 200px;")
+            button(id="showPositionBtn") Show position in console
+            button(id="setRuyLopezBtn") Ruy Lopz
 
+
+        div
             form(class="lobby-play" method="POST" action="/lobby")
                     #error
                         if error
@@ -13,6 +21,8 @@ block content
                     - var buttonClass=['btn', 'btn-lg', 'btn-primary', 'btn-block'];
                     hr
                     a(class=buttonClass href="/lobby") Return to Lobby
+        
+    
         .col-lg
         section.section.chat-container
             .container
@@ -24,14 +34,17 @@ block content
                             ul#messages
                         form(id='chat-form')
                             .field.has-addons
-                                input(id='room_id', type='hidden', value=1)
-                                input(id='name', type='hidden', value=user.username)
+                                input(id='room_id', type='hidden', value=gameId)
+                                input(id='name', type='hidden', value=username)
                                 p.control.is-expanded
                                     input(id='message' type='text' class='input' placeholder='Message')
                                 p.control
                                     input(type='submit' class='button is-success' value='Send')
                     br
-
+        script(src='/scripts/chessboard.js')
         script(src='/scripts/chat.js')
-                
+        script(src='/scripts/game.js')
+        
+        
+            
                 
