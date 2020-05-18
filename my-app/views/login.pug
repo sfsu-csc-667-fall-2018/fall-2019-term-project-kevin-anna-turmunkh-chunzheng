@@ -5,7 +5,7 @@ block content
     p.text-center by Anna, Chunzheng, Kevin, Turmunkh
     hr(style="width:25%;")
     div.row.text-center
-        .col-lg
+        .row-lg
             div
                 <img src="\images\chesspieces\wikipedia\wK.png" alt="WhiteKing" style="width:10vh">
             div
@@ -26,8 +26,8 @@ block content
                 h1(class=h1Classes) Sign In
 
                 //-input username
-                label( for="inputUsername" class="sr-only") Email address
-                input(type="text" name="username" id="inputEmail" class="form-control" placeholder="Username" required autofocus)
+                label( for="inputEmail" class="sr-only") Email address
+                input(type="email" name="username" id="inputEmail" class="form-control" placeholder="Email Address" required autofocus)
 
                 //-input password
                 label(for="inputPassword" class="sr-only") Password
@@ -44,7 +44,7 @@ block content
                 button(class=buttonClass type="submit") Create an Account
 
                 br
-        .col-lg
+        .row-lg
             div
                 <img src="\images\chesspieces\wikipedia\bK.png" alt="BlackKing" style="width:10vh">
             div
