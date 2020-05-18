@@ -14,8 +14,8 @@ const passport = require('./authentication');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const lobbyRouter = require('./routes/lobby');
-const gamesRouter = require('./routes/games');
+const lobbyRouter = require('./my-app/routes/lobby');
+const gamesRouter = require('./my-app/routes/games');
 
 const app = express();
 

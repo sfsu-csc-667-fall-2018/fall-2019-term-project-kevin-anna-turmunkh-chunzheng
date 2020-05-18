@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn
-const game = require('../db/').Game;
+const game = require('../../db').Game;
 
 router.get('/', ensureLoggedIn("/users/login"), (request, response) => {
   const { user } = request;

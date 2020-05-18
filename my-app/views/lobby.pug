@@ -28,12 +28,12 @@ block content
                     hr
                     button(class=buttonClass type="") Reconnect
                 //-Logout
-                form(class="lobby-logout" method="POST" action="")
+                form(class="lobby-logout" method="POST" action="'/users/logout'")
                     #error
                         if error
                             p.text-danger Error!!!
                     hr
-                    button(class=buttonClass type="") Logout
+                   a(class=buttonClass href="/users/logout") Logout
                 div(class="pictures")
                     <img src="\images\chesspieces\wikipedia\wN.png" alt="BlackKing" style="width:10vh">
                     div
