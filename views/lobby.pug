@@ -17,7 +17,9 @@ block content
                         p.text-danger Error!!!
                 - var buttonClass=['btn', 'btn-lg', 'btn-primary', 'btn-block'];
                 hr
-                button(class=buttonClass type="submit", id="create_game") Create New Game
+                //button(class=buttonClass type="submit", id="create_game") Create New Game
+                input(name='hostName', type='text', placeholder='Host Name')
+                input(type='submit', id='create_game', value='Create Game')
             //-Recconnect to previous game
             form(class="lobby-recon" method="POST" action="")
                 #error

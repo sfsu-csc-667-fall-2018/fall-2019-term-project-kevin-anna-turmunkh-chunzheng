@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "bcrypt": "^4.0.1",
+    "chess.js": "^0.10.3",
     "clean-css": "^4.2.3",
     "connect-ensure-login": "^0.1.1",
     "connect-flash": "^0.1.1",
