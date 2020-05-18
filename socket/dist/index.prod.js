@@ -1,1 +1,0 @@
-"use strict";io=require("socket.io")(),io.on("connection",function(o){console.log("connected to server socket"),o.on("entered",function(o){io.emit("entered message",o)}),o.on("typing",function(o){io.emit("typing message",o)}),o.on("disconnect",function(o){console.log("disconnected from socket io")}),o.on("send",function(o){io.emit("send message",o)})}),module.exports=io;
