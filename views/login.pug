@@ -36,6 +36,12 @@ block content
                 //-signIn button
                 - var buttonClass=['btn', 'btn-lg', 'btn-primary', 'btn-block'];
                 button(class=buttonClass type="submit") Sign in
+                hr
+                //-create acount
+                h6(class=h1Classes) New User?
+
+                - var buttonClass=['btn', 'btn-lg', 'btn-primary', 'btn-block'];
+                a(class=buttonClass href='/users/signup') Create an Account
 
                 br
         .row-lg
