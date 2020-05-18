@@ -3,19 +3,19 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable(
-      'test_table',
+      'ingame', 
       {
-        id: {
+        game_id: {
           type: Sequelize.INTEGER,
-          primaryKey: true,
-          autoIncrement: true
+          allowNull: false,
+          autoIncrement: false,
+          primaryKey: false
         },
-        createdAt: {
-          type: Sequelize.DATE,
-          defaultValue: Sequelize.literal('NOW()'),
-          allowNull: false
+        player_id: {
+          type: Sequelize.INTEGER,
+          allowNull: false 
         },
-        testString: {
+        position: {
           type: Sequelize.STRING,
           allowNull: false
         }
@@ -24,6 +24,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('test_table');
+    return queryInterface.dropTable('ingame');
   }
 };

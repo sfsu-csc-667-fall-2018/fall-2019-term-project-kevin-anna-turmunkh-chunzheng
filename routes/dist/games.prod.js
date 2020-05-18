@@ -1,0 +1,1 @@
+"use strict";var express=require("express"),router=express.Router();router.get("/",function(r,e){e.render("game")}),router.post("/lobby",function(r,e){var o=r,t=r.query.error;e.render("lobby",{user:o,error:t})}),module.exports=router;
