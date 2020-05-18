@@ -15,43 +15,39 @@ block content
                         p.text-danger Error!!!
                 - var buttonClass=['btn', 'btn-lg', 'btn-primary', 'btn-block'];
                 hr
-                //button(class=buttonClass type="submit", id="create_game") Create New Game
-                input(name='hostName', type='text', placeholder='Host Name')
-                input(type='submit', id='create_game', value='Create Game')
-            //-Recconnect to previous game
-            form(class="lobby-recon" method="POST" action="")
-                #error
-                    if error
-                        p.text-danger Error!!!
-                - var buttonClass=['btn', 'btn-lg', 'btn-primary', 'btn-block'];
-                hr  
-                button(class=buttonClass type="") Reconnect
-            //-Logout
-            form(class="lobby-logout" method="POST" action='/users/logout')
+                //button(class=buttonClass type="submit" id="create_game") Create New Game
+                input(name='hostName' type='text' placeholder='Host Name')
+                input(type='submit' id='create_game' value='Create Game')
+            form(class="lobby-logout" method="POST" action="'/users/logout'")
                 #error
                     if error
                         p.text-danger Error!!!
                 hr
                 a(class=buttonClass href="/users/logout") Logout
+                div(class="pictures")
+                    <img src="\wikipedia\wN.png" alt="BlackKing" style="width:10vh">
+                div
+                    <img src="\wikipedia\wK.png" alt="BlackKing" style="width:10vh">
+                     <img src="\wikipedia\wQ.png" alt="BlackKing" style="width:10vh">
 
+        //-Chat column
         .col-lg
-        section.section.chat-container
-            .container
-                .columns
-                    .box.column.is-8.is-offset-2
-                    h2.title Chat box
-                    div(class="chatbox")
-                        .chat-messages.has-text-left
-                            ul#messages
-                        form(id='chat-form')
-                            .field.has-addons
-                                input(id='room_id', type='hidden', value=0)
-                                input(id='name', type='hidden', value=user.username)
-                                p.control.is-expanded
-                                    input(id='message' type='text' class='input' placeholder='Message')
-                                p.control
-                                    input(type='submit' class='button is-success' value='Send')
-                    br
+            section.section.chat-container
+                - var h1Classes = ['h3', 'mb-3', 'font-weight-normal']
+                h1(class=h1Classes) Chat box
+                div(class="chatbox")
+                    .chat-messages.has-text-left
+                        ul#messages
+                br
+                form(id='chat-form' class = 'sendMsg')
+                    .field.has-addons
+                        input(id='room_id', type='hidden', value=0)
+                        input(id='name', type='hidden', value=user.username)
+                        p.control.is-expanded
+                            input(id='message' type='text' class='form-control' placeholder='Send a Message')
+                        p.control
+                            input(type='submit' value='Send')
+                br
 
         script(src='/scripts/chat.js')
         script(src='/scripts/lobby.js')

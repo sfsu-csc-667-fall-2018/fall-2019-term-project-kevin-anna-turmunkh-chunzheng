@@ -27,7 +27,7 @@ lobbySocket.on('display games', currentGames => {
       $('#games').append(form);
 
     } else {
-      $('#games').append($('<span>').text(str + ' Room is Full!'));
+      $('#games').append($('<span>').text(game_details + ' Room is Full!'));
     }
   }  
 });

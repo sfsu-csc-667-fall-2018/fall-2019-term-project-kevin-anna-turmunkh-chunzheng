@@ -36,12 +36,12 @@ $(document).ready(() => {
   socket.on('entered message', data => {
     const { roomId, user } = data;
 
-    const lobby = ' joined';
+    const lobby = ' joined Lobby';
     const game = ' joined into Game';
 
     if (room == roomId) {
       if (room == 0) {
-        $('#messages').append($('<li>').text(user + lobby + roomId));
+        $('#messages').append($('<li>').text(user + lobby));
       } else {
         $('#messages').append($('<li>').text(user + game + roomId));
       }
