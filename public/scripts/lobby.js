@@ -18,8 +18,8 @@ lobbySocket.on('display games', currentGames => {
       const form = $( 
         `<form method="POST" action="/lobby/join">
           <label>"${game_details}"</label>
-          <input type="hidden" value="${game_id}"></input>
-          <button class="buttonClass" type="submit" value="Join Game">
+          <input type="hidden" name="game_id" value="${game_id}"></input>
+          <input class="buttonClass" type="submit" value="Join Game">
           <br>
         </form>`
       );
