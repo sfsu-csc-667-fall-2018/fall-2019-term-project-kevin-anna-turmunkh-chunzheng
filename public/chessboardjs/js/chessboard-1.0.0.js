@@ -20,7 +20,54 @@
   var ELLIPSIS = '…'
   var MINIMUM_JQUERY_VERSION = '1.8.3'
   var RUN_ASSERTS = false
-  var START_FEN = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR'
+
+  var chessMap = {
+      wP: 'P',
+      wR: 'R',
+      wN: 'N',
+      wB: 'B',
+      wQ: 'Q',
+      wK: 'K',
+
+      bP: 'p',
+      bR: 'r',
+      bN: 'n',
+      bB: 'b',
+      bQ: 'q',
+      bK: 'k'
+  }
+
+  var posMap = {
+    a: '1',
+    b: '2',
+    c: '3',
+    d: '4',
+    e: '5',
+    f: '6',
+    g: '7',
+    h: '8',
+}
+
+  fetch('http://localhost:3000/chess/position')
+  .then(res => res.text())
+  .then(rs => console.log(rs))
+
+  var start = ['rnbqkbnr',
+               'p1pppppp',
+               '1p111111',
+               '11111111',
+               '11111111',
+               '11111111',
+               'PPPPPPPP',
+               'RNBQKBNR']
+
+  var START_FEN = '';
+
+  for(let str of start)
+    START_FEN += (str + '/')
+    START_FEN = START_FEN.substr(0, START_FEN.length - 1)
+
+  //var START_FEN = 'rnbqkbnr/p1pppppp/1p111111/8/8/8/PPPPPPPP/RNBQKBNR'
   var START_POSITION = fenToObj(START_FEN)
 
   // default animation speeds
@@ -1338,6 +1385,26 @@
       if (validSquare(location)) {
         $('#' + squareElsIds[location]).addClass(CSS.highlight2)
       }
+
+
+      let col = posMap[location.charAt(0)]
+      let row = location.charAt(1)
+      let chess = chessMap[draggedPiece]
+
+      fetch('http://localhost:3000/chess/position',
+      {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+              position : col + row + chess
+          })
+      })
+      .then(res => res.text())
+      .then(rs => console.log(rs))
+
+
 
       // run onDragMove
       if (isFunction(config.onDragMove)) {
