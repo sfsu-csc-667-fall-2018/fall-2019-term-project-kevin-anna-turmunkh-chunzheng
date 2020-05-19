@@ -12,7 +12,7 @@ lobbySocket.on('display games', currentGames => {
 
     const {game_id, host_name, player_numbers} = currentGames[i];
     
-    const game_details = 'Host Name: ' + host_name + ' Game ID: ' + game_id + 'Players: ' + player_numbers;
+    const game_details = 'Host Name: ' + host_name + ' Game ID: ' + game_id + ' Players: ' + player_numbers;
 
     if(player_numbers < 2){
       const form = $( 
@@ -27,7 +27,7 @@ lobbySocket.on('display games', currentGames => {
       $('#games').append(form);
 
     } else {
-      $('#games').append($('<span>').text(game_details + ' Room is Full!'));
+      $('#games').append($('<span>').text(game_details + ' Room is Occupied!'));
     }
   }  
 });

@@ -5,8 +5,10 @@ block content
         //-Button Column
         .col-lg.text-center
             - var h1Classes = ['h3', 'mb-3', 'font-weight-normal']
-                h1(class=h1Classes)  Play 
-            //-Enter Queue button
+            h1(class=h1Classes)  Play 
+            hr(style="width:50%;")
+            p User: #{user.username} Id: #{user.id}
+            hr(style="width:50%;")
             h2.title Current Games
                 ul#games
             form(class="lobby-play" method="POST" action="/lobby/create")
